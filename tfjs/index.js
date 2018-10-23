@@ -1,12 +1,14 @@
 import * as tf from '@tensorflow/tfjs';
-import {Webcam} from './webcam';
+import { Webcam } from './webcam';
 
 const webcam = new Webcam(document.getElementById('webcam'));
 
-const MODEL_URL = '/mobilenet1/tensorflowjs_model.pb';
-const WEIGHTS_URL = './mobilenet1/weights_manifest.json';
+const MODEL_URL = '/mobilenet3/tensorflowjs_model1712.pb';
+const WEIGHTS_URL = './mobilenet3/weights_manifest1712.json';
 
-const result = ['left', 'right', 'stop']
+// const result = ['left', 'right', 'stop']
+const result = ['拳头', '手掌']
+// const result = ['four', 'five', 'one', 'three', 'two']
 
 var model;
 var predicting = false;
@@ -17,7 +19,7 @@ async function LoadModel() {
 
 async function predict() {
   // console.log("0");
-  while(predicting) {
+  while (predicting) {
     // console.log("1");
 
     const predictedClass = tf.tidy(() => {
@@ -58,9 +60,11 @@ async function init() {
 document.getElementById('stop').addEventListener('click', async () => {
   predicting = false;
 });
-document.getElementById('start').addEventListener('click', async() => {
-  predicting = true;
-  predict();
+document.getElementById('start').addEventListener('click', async () => {
+  if (!predicting) {
+    predicting = true;
+    predict();
+  }
 });
 
 // LoadModel();
