@@ -3,6 +3,8 @@
 使用webcam识别。目前只有我一个人的样本集。
 
 ```bash
+cd tfjs
+npm install
 npm run server
 ```
 ~~我的前端非常之烂_(:3」∠)_~~
