@@ -16,11 +16,14 @@ demo：https://qxy65535.github.io/
 # 最近工作
 last updated: 2018/10/23
 
+**以下工作的python版本均为python 3.x**
+
 1、制作样本数据集
 ```bash
 python camera.py
 ```
-数据将生成于当前目录下的data/class_name
+数据将生成于当前目录下的data文件夹下
+* 这个是根据我的摄像头写的。。拍摄224x224大小的文件。。我不知道大家的分辨率。。不保证没有BUG。。有需求可以自己写或者魔改。。
 
 2、retrain mobilenet
 
